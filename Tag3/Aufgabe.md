@@ -121,4 +121,4 @@ void testIsPositive(int n) {
 - `BankUtils` sorgt fÜr einheitliche Ausgabeformatierung.  
 
 ## Übung 4 
-Befindet sich im 02_bank-vorgabe Ordner
+Wurde zusammen mit Leon Neuhaus erledigt. 
