@@ -1,0 +1,110 @@
+{
+  "info": {
+    "name": "Student API (Spring Boot)",
+    "_postman_id": "b2cbdc63-0a50-4a0b-9ca6-1234567890ab",
+    "description": "Automated tests for /students endpoints (GET, POST). Use with Newman for CI.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET /students",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/students",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "students"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('status 200', function () { pm.response.to.have.status(200); });",
+              "pm.test('is JSON array', function () { pm.response.to.be.withBody; pm.expect(pm.response.json()).to.be.an('array'); });"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "POST /students",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Mila\", \"email\": \"mila@tbz.ch\"}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/students",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "students"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('status is 2xx', function () { pm.expect(pm.response.code).to.be.oneOf([200,201,204]); });"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GET /students (verify Mila exists)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/students",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "students"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const arr = pm.response.json();",
+              "pm.test('contains Mila', function () {",
+              "  pm.expect(arr.some(s => s.name === 'Mila' && s.email === 'mila@tbz.ch')).to.be.true;",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8081"
+    }
+  ]
+}
