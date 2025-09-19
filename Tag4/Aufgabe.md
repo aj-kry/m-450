@@ -57,5 +57,5 @@
 - Prüft Status-Codes (`200 OK`, `404 Not Found`, etc.).
 
 ---
-
+![Architektur](image.png)
 
