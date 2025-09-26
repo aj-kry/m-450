@@ -37,4 +37,31 @@ Folgendes wird getestet:
 ### Relsutat 
 ![alt text](image.png)
 
+## Übung 2
+### Toolwahl
+
+- Karma ist das Standard-Test-Runner-Tool in Angular-Projekten (Angular CLI setzt es automatisch ein).
+
+- Es läuft Tests automatisiert im Browser (Chrome, Firefox, Headless).
+
+- In Kombination mit Jasmine können wir damit GUI-Tests schreiben.
+
+- Damit lassen sich End-to-End-ähnliche Tests auf Komponenten-Ebene realisieren.
+
+
+![alt text](image-3.png)<br/>
+<br/>
+![alt text](image-2.png)
+
+## Übung 3
+### Tools — Kurzüberblick & Auswahl
+
+**Postman:** Gut für funktionale und manuelle Lasttests (Collection Runner). Einfach zu benutzen, limitiert bei hoher parallelisierter Last.
+
+**Newman:** CLI-Runner für Postman-Collections. Nützlich für Automatisierung, nicht sehr performant für massive Last.
+
+**k6:** Modernes, scriptbasiertes Load‑Testing-Tool (JS). Leichtgewichtig, ideal für Performance‑Skripte und CI-Integration. Empfehlenswert.
+
+**Apache JMeter:** Sehr mächtig, GUI für komplexe Szenarien, robust für hohe Last. Benötigt mehr Ressourcen.
+
 
